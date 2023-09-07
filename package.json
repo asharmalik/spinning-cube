@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006 -s ../src/stories/assets",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "@storybook/blocks": "^7.4.0",
     "@storybook/react": "^7.4.0",
     "@storybook/react-webpack5": "^7.4.0",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.2.0",
     "storybook": "^7.4.0"
   }
