@@ -1,6 +1,6 @@
 {
   "name": "spinning-cube",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/SpinningCube.js",
   "types": "dist/SpinningCube.d.ts",
