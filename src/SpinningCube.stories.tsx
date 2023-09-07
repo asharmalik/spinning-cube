@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Story, Meta } from '@storybook/react/types-6-0';
 import type { Meta, StoryFn } from '@storybook/react';
 
 import SpinningCube, { SpinningCubeProps } from './SpinningCube';
@@ -14,11 +13,24 @@ const Template: StoryFn<SpinningCubeProps> = (args) => <SpinningCube {...args} /
 export const Default = Template.bind({});
 Default.args = {
     imageUrls: [
-        'https://path-to-your-image1.jpg',
-        'https://path-to-your-image2.jpg',
-        'https://path-to-your-image3.jpg',
-        'https://path-to-your-image4.jpg',
-        'https://path-to-your-image5.jpg',
-        'https://path-to-your-image6.jpg'
+        './cube-side.png',
+        './cube-side.png',
+        './cube-side.png',
+        './cube-side.png',
+        './cube-side.png',
+        './cube-side.png',
     ],
+    rotationSpeed: 0.00625,
+    size: 250
+};
+
+Default.argTypes = {
+    rotationSpeed: {
+        control: {
+            type: 'number',
+            min: 0,
+            max: 1,
+            step: 0.001,
+        },
+    },
 };

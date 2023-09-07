@@ -5,9 +5,11 @@ import { Box, PerspectiveCamera } from '@react-three/drei';
 
 export interface SpinningCubeProps {
     imageUrls: string[];
+    size: number; // px
+    rotationSpeed: number;
 }
 
-const Cube: React.FC<{ textures: THREE.Texture[] }> = ({ textures }) => {
+const Cube: React.FC<{ textures: THREE.Texture[], rotationSpeed: number }> = ({ textures, rotationSpeed }) => {
     const meshRef = useRef<THREE.Mesh>(null);
     const { size, camera } = useThree();
 
@@ -30,8 +32,8 @@ const Cube: React.FC<{ textures: THREE.Texture[] }> = ({ textures }) => {
 
             const cameraDistance = halfDiagonal / Math.tan((Math.PI / 180) * 45 / 2) * 2;
 
-            meshRef.current.rotation.y += 0.005 * 1.25;
-            meshRef.current.rotation.x = 3 + scrollY * 0.0045; // This line connects the rotation to the scroll position.
+            meshRef.current.rotation.y += rotationSpeed;
+            meshRef.current.rotation.x += rotationSpeed;
             meshRef.current.scale.set(scale, scale, scale);
 
             camera.position.z = cameraDistance;
@@ -47,7 +49,7 @@ const Cube: React.FC<{ textures: THREE.Texture[] }> = ({ textures }) => {
     );
 };
 
-const SpinningCube: React.FC<SpinningCubeProps> = ({ imageUrls }) => {
+const SpinningCube: React.FC<SpinningCubeProps> = ({ size, imageUrls, rotationSpeed }) => {
     const [loadedTextures, setLoadedTextures] = useState<THREE.Texture[]>([]);
 
     useEffect(() => {
@@ -70,16 +72,27 @@ const SpinningCube: React.FC<SpinningCubeProps> = ({ imageUrls }) => {
     }
 
     return (
-        <div className="h-[250px] w-[250px] md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
-            <Canvas>
+        <div style={{
+            width: `${size}px`,
+            height: `${size}px`
+        }}>
+            <Canvas style={{
+                    width: '100%',
+                    height: '100%'
+                }}
+            >
                 <PerspectiveCamera makeDefault position={[0, 0, 5]} />
                 <ambientLight intensity={0.5} /> {/* Adjusted this */}
                 <directionalLight position={[2, 2, 2]} intensity={1} /> {/* Added this */}
-                <Cube textures={loadedTextures} />
+                <Cube textures={loadedTextures} rotationSpeed={rotationSpeed} />
             </Canvas>
         </div>
     );
 }
 
+SpinningCube.defaultProps = {
+    size: 250,
+    rotationSpeed: 0.00625
+};
 
 export default SpinningCube;
