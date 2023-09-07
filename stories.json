@@ -1,0 +1,1 @@
+{"v":3,"stories":{"spinningcube--default":{"id":"spinningcube--default","name":"Default","title":"SpinningCube","importPath":"./src/SpinningCube.stories.tsx","tags":["story"],"kind":"SpinningCube","story":"Default","parameters":{"__id":"spinningcube--default","docsOnly":false,"fileName":"./src/SpinningCube.stories.tsx"}}}}
