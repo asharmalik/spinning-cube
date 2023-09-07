@@ -14,14 +14,14 @@ A visually captivating 3D spinning cube for React applications, made easy with R
 Using npm:
 
 ```bash
-npm install @asharmalik/spinning-cube
+npm install spinning-cube
 ```
 
 
 ## Usage
 Here's a quick example
 ```javascript
-import SpinningCube from '@your-npm-username/spinningcube';
+import SpinningCube from 'spinning-cube';
 
 function MyApp() {
     return (
