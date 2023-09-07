@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006 -s ../src/stories/assets",
     "build-storybook": "storybook build -s ./src/stories/assets",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
