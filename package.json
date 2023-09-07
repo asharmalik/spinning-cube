@@ -2,7 +2,11 @@
   "name": "spinning-cube",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/SpinningCube.js",
+  "types": "dist/SpinningCube.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006 -s ../src/stories/assets",
