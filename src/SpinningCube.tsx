@@ -13,15 +13,6 @@ const Cube: React.FC<{ textures: THREE.Texture[], rotationSpeed: number }> = ({ 
     const meshRef = useRef<THREE.Mesh>(null);
     const { size, camera } = useThree();
 
-    const [scrollY, setScrollY] = useState(window.scrollY);
-
-    useEffect(() => {
-        const handleScroll = () => setScrollY(window.scrollY);
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     useFrame(() => {
         const scale = Math.min(size.width, size.height) / 150 * 4;
 
@@ -58,7 +49,7 @@ const SpinningCube: React.FC<SpinningCubeProps> = ({ size, imageUrls, rotationSp
         const loadPromises = imageUrls.map((url) =>
             new Promise<THREE.Texture>((resolve) => {
                 loader.load(url, (texture) => {
-                    texture.encoding = THREE.sRGBEncoding;  // Added this line
+                    texture.encoding = THREE.sRGBEncoding;
                     resolve(texture);
                 });
             })
